@@ -1,18 +1,19 @@
 package com.qoala;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    private List<Card> pile = new ArrayList<>();
+    private static List<Card> pile = new ArrayList<>();
 
-    public void deck() {
+    public void Deck() {
         createDeck();
         shuffleDeck();
     }
 
 
-    public void deck(int decks) {
+    public void Deck(int decks) {
         for (int i = 0; i <= decks; i++) {
             createDeck();
         }
@@ -30,7 +31,7 @@ public class Deck {
 
 
     public void shuffleDeck() {
-
+        Collections.shuffle(Deck.pile);
     }
 
 }
