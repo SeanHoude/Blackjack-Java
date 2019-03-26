@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    static List<Card> pile = new ArrayList<>();
+    List<Card> pile = new ArrayList<>();
 
     public Deck() {
         createDeck();
@@ -19,7 +19,7 @@ public class Deck {
             throw new InvalidRequestException("That is not a valid number of decks to use when creating a new deck!");
         }
 
-        for (int i = 0; i <= decks; i++) {
+        for (int i = 0; i < decks; i++) {
             createDeck();
         }
         shuffleDeck();
@@ -29,32 +29,34 @@ public class Deck {
     public void createDeck() {
         for (Rank rank : Rank.values()) {
             for (Suit suit : Suit.values()) {
-                Card card = new Card(suit, rank);
-                this.pile.add(card);
-                System.out.println(card.getSuit());
+                pile.add(new Card(suit, rank));
             }
         }
     }
 
 
     public void shuffleDeck() {
-        Collections.shuffle(Deck.pile);
+        Collections.shuffle(pile);
     }
 
 
     public void destroyDeck() {
-        Deck.pile.clear();
+        pile.clear();
     }
 
 
     @Override
     public String toString() {
-        String cardList = "";
-        for (Card card : Deck.pile) {
-            cardList += ", " + card;
+        StringBuilder result = new StringBuilder(pile.size() + " cards:" + System.lineSeparator());
+
+        for (Card card : pile) {
+            result.append(card + ", ");
         }
-        return cardList;
+
+        result.setLength(result.length() - 2);
+
+        return result.toString();
     }
 
-
 }
+

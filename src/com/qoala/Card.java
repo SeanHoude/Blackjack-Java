@@ -2,8 +2,8 @@ package com.qoala;
 
 public class Card {
 
-    private static Suit suit;
-    private static Rank rank;
+    private Suit suit;
+    private Rank rank;
 
 
     public Card(Suit suit, Rank rank){
