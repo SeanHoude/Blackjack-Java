@@ -3,6 +3,9 @@ package com.qoala;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Deck deck = new Deck();
+        for (Card card : deck.pile) {
+            System.out.println(card.getSuit());
+        }
     }
 }
