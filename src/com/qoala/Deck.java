@@ -7,13 +7,13 @@ import java.util.List;
 public class Deck {
     private static List<Card> pile = new ArrayList<>();
 
-    public void Deck() {
+    public Deck() {
         createDeck();
         shuffleDeck();
     }
 
 
-    public void Deck(int decks) {
+    public Deck(int decks) {
         for (int i = 0; i <= decks; i++) {
             createDeck();
         }
@@ -34,4 +34,7 @@ public class Deck {
         Collections.shuffle(Deck.pile);
     }
 
+    public void destroyDeck() {
+        Deck.pile.clear();
+    }
 }
