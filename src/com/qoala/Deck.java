@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    List<Card> pile = new ArrayList<>();
+    public List<Card> pile = new ArrayList<>();
 
     public Deck() {
         createDeck();
@@ -29,27 +29,27 @@ public class Deck {
     public void createDeck() {
         for (Rank rank : Rank.values()) {
             for (Suit suit : Suit.values()) {
-                pile.add(new Card(suit, rank));
+                this.pile.add(new Card(suit, rank));
             }
         }
     }
 
 
     public void shuffleDeck() {
-        Collections.shuffle(pile);
+        Collections.shuffle(this.pile);
     }
 
 
     public void destroyDeck() {
-        pile.clear();
+        this.pile.clear();
     }
 
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder(pile.size() + " cards:" + System.lineSeparator());
+        StringBuilder result = new StringBuilder(this.pile.size() + " cards:" + System.lineSeparator());
 
-        for (Card card : pile) {
+        for (Card card : this.pile) {
             result.append(card + ", ");
         }
 

@@ -10,5 +10,10 @@ public class Main {
 //        }
         System.out.println(deck);
         System.out.println(deck2);
+        deck2.destroyDeck();
+        System.out.println(deck2);
+        deck2.createDeck();
+        System.out.println(deck2);
+
     }
 }

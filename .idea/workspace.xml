@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6a1c273-62fb-4eab-aa0f-5e66af7416a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/qoala/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qoala/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/qoala/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qoala/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/qoala/DeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qoala/DeckTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/qoala/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qoala/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qoala/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qoala/Rank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qoala/Suit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qoala/Suit.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,27 +13,33 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/BlackJack$Main.ic" NAME="Main Coverage Results" MODIFIED="1553642946211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="241" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/qoala/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/qoala/Deck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+            <state relative-caret-position="442">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#762#763#0" expanded="true" />
                 <element signature="e#803#804#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,11 +60,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/qoala/DeckTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+            <state relative-caret-position="68">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <folding>
+                <element signature="e#408#409#0" expanded="true" />
+                <element signature="e#458#459#0" expanded="true" />
+                <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#577#578#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,14 +124,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/qoala/DeckTest.java" />
         <option value="$PROJECT_DIR$/src/com/qoala/CardTest.java" />
         <option value="$PROJECT_DIR$/src/com/qoala/InvalidRequestException.java" />
-        <option value="$PROJECT_DIR$/src/com/qoala/Main.java" />
         <option value="$PROJECT_DIR$/src/com/qoala/Suit.java" />
-        <option value="$PROJECT_DIR$/src/com/qoala/Deck.java" />
         <option value="$PROJECT_DIR$/src/com/qoala/Rank.java" />
         <option value="$PROJECT_DIR$/src/com/qoala/Card.java" />
+        <option value="$PROJECT_DIR$/src/com/qoala/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/qoala/Deck.java" />
+        <option value="$PROJECT_DIR$/src/com/qoala/DeckTest.java" />
       </list>
     </option>
   </component>
@@ -172,11 +182,12 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553639875260" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553643717355" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -198,7 +209,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.DeckTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.qoala.Main" />
       <module name="BlackJack" />
@@ -209,8 +220,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DeckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlackJack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qoala.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qoala" />
+      <option name="MAIN_CLASS_NAME" value="com.qoala.DeckTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeckTest.deckHas52Cards" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlackJack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qoala.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qoala" />
+      <option name="MAIN_CLASS_NAME" value="com.qoala.DeckTest" />
+      <option name="METHOD_NAME" value="deckHas52Cards" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeckTest.trueAssumption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlackJack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qoala.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qoala" />
+      <option name="MAIN_CLASS_NAME" value="com.qoala.DeckTest" />
+      <option name="METHOD_NAME" value="trueAssumption" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.DeckTest" />
+      <item itemvalue="JUnit.DeckTest.trueAssumption" />
+      <item itemvalue="JUnit.DeckTest.deckHas52Cards" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeckTest" />
+        <item itemvalue="JUnit.DeckTest.deckHas52Cards" />
+        <item itemvalue="JUnit.DeckTest.trueAssumption" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -225,12 +292,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553620841455</updated>
-      <workItem from="1553620856407" duration="13642000" />
+      <workItem from="1553620856407" duration="16707000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="DeckTest - 2019.03.26 at 19h 30m 19s.xml">
+      <configuration name="DeckTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeckTest_trueAssumption - 2019.03.26 at 19h 34m 11s.xml">
+      <configuration name="DeckTest.trueAssumption" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeckTest_deckHas52Cards - 2019.03.26 at 19h 36m 11s.xml">
+      <configuration name="DeckTest.deckHas52Cards" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeckTest_deckHas52Cards - 2019.03.26 at 19h 36m 59s.xml">
+      <configuration name="DeckTest.deckHas52Cards" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeckTest_deckHas52Cards - 2019.03.26 at 19h 37m 26s.xml">
+      <configuration name="DeckTest.deckHas52Cards" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeckTest_deckHas52Cards - 2019.03.26 at 19h 37m 29s.xml">
+      <configuration name="DeckTest.deckHas52Cards" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeckTest_deckHas52Cards - 2019.03.26 at 19h 40m 35s.xml">
+      <configuration name="DeckTest.deckHas52Cards" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13642000" />
+    <option name="totallyTimeSpent" value="16707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -263,6 +353,7 @@
       <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -280,13 +371,6 @@
             <element signature="e#257#258#0" expanded="true" />
             <element signature="e#286#287#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/qoala/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -310,17 +394,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/qoala/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/qoala/CardTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/qoala/DeckTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -339,16 +423,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/qoala/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        <state relative-caret-position="442">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#762#763#0" expanded="true" />
             <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/qoala/DeckTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding>
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
