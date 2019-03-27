@@ -4,26 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    public List<Card> cards = new ArrayList<>();
 
+    public List<Card> hand;
+    public boolean dealer;
 
     public Player() {
+        this.hand = new ArrayList<>();
+        this.dealer = false;
     }
 
 
-    public void hit() {
-        this.cards.add(deck.pile.remove(0));
+    public Player(int oneIfDealer) {
+        this.hand = new ArrayList<>();
+        if (oneIfDealer == 1) {
+            this.dealer = true;
+        }
     }
 
 
-    public List<Integer> getHandValue() {
+    public boolean isDealer() {
+        return this.dealer;
+    }
+
+
+    public List<Integer> calcHandScore() {
         List<Integer> result = new ArrayList<>();
         int aces = 0;
         int blackjack = 0;
         int total = 0;
-        for (Card card : this.cards) {
+        for (Card card : this.hand) {
             if (card.getRank() == Rank.Ace) { aces++; }
-            if (card.getRank() == Rank.Jack && card.getSuit() == Suit.Clubs || card.getSuit() == Suit.Spades) {
+            if (card.getRank() == Rank.Jack &&
+                card.getSuit() == Suit.Clubs ||
+                card.getSuit() == Suit.Spades) {
                 blackjack = 1;
             }
             total += card.getValue();
