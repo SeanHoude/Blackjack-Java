@@ -9,7 +9,7 @@ public class Deck {
 
     public Deck() {
         createDeck();
-        shuffleDeck();
+        shuffle();
     }
 
 
@@ -22,7 +22,7 @@ public class Deck {
         for (int i = 0; i < decks; i++) {
             createDeck();
         }
-        shuffleDeck();
+        shuffle();
     }
 
 
@@ -35,7 +35,7 @@ public class Deck {
     }
 
 
-    public void shuffleDeck() {
+    public void shuffle() {
         Collections.shuffle(this.pile);
     }
 

@@ -1,5 +1,8 @@
 package com.qoala;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DeckTest {
@@ -26,7 +29,11 @@ class DeckTest {
     }
 
     @org.junit.jupiter.api.Test
-    void deck1() {
+    void shuffleTest() {
+        List<Card> firstTen = new ArrayList<>();
+        firstTen = new ArrayList(deck.pile.subList(0, 10));
+        deck.shuffle();
+        assertNotEquals(firstTen, deck.pile.subList(0, 10));
     }
 
     @org.junit.jupiter.api.Test
