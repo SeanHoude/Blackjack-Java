@@ -5,16 +5,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
+
     public List<Card> pile = new ArrayList<>();
+    public int decks;
+
+
 
     public Deck() {
         createDeck();
         shuffle();
+        this.decks = 1;
     }
 
 
     public Deck(int decks) {
-
         if (decks <= 0) {
             throw new InvalidRequestException("That is not a valid number of decks to use when creating a new deck!");
         }
@@ -23,6 +27,7 @@ public class Deck {
             createDeck();
         }
         shuffle();
+        this.decks = decks;
     }
 
 
@@ -37,6 +42,19 @@ public class Deck {
 
     public void shuffle() {
         Collections.shuffle(this.pile);
+    }
+
+
+    public boolean playerWins(Hand player, Hand dealer) {
+        List<Integer> playerValue = player.getHandValue();
+        List<Integer> dealerValue = dealer.getHandValue();
+        if (playerValue.get(0) == dealerValue.get(0)) {
+            if (playerValue.get(1) > dealerValue.get(1)) {
+                return true;
+            }
+            return false;
+        }
+        return playerValue.get(0) == dealerValue.get(0) ? true : false;
     }
 
 

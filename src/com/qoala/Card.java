@@ -16,6 +16,14 @@ public class Card {
         return this.suit;
     }
 
+    public Rank getRank() {
+        return this.rank;
+    }
+
+    public int getValue() {
+        return this.rank.getValue();
+    }
+
 
     @Override
     public String toString() {

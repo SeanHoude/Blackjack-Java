@@ -2,9 +2,10 @@ package com.qoala;
 
 public enum Rank {
     /**
-     * if hand <= 21 ace == 11, else ace == 1. Jack, queen, and king == 10
+     * if hand <= 21 ace == 11, else ace == 1. Jack, queen, and king == 10.
+     * Jack of clubs or spades and hand of 21 beats hand of 21 without.
      */
-    Ace     (1),
+    Ace     (11),
     Two     (2),
     Three   (3),
     Four    (4),

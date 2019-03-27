@@ -37,10 +37,26 @@ class DeckTest {
     }
 
     @org.junit.jupiter.api.Test
-    void createDeck() {
+    void initialDealTest() {
     }
 
     @org.junit.jupiter.api.Test
-    void shuffleDeck() {
+    void getHandValueTest() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void over21AceIsOne() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void under21AceIsEleven() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void blackJackBeatsTwentyOne() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void moreThanOneAceIsNotTreatedEqually() {
     }
 }
