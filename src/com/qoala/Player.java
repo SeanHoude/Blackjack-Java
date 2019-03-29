@@ -27,8 +27,8 @@ public class Player {
     }
 
 
-    public List<Integer> calcHandScore() {
-        List<Integer> result = new ArrayList<>();
+    public ArrayList<Integer> calcHandScore() {
+        ArrayList<Integer> score = new ArrayList<>();
         int aces = 0;
         int blackjack = 0;
         int total = 0;
@@ -45,10 +45,10 @@ public class Player {
             aces--;
             total -= 10;
         }
-        result.add(total);
-        result.add(blackjack);
-        System.out.println(result);
-        return result;
+        score.add(total);
+        score.add(blackjack);
+        System.out.println(score);
+        return score;
     }
 
 

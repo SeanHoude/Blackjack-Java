@@ -12,7 +12,7 @@ public class Deck {
 
 
     public Deck() {
-        createDeck();
+        createDecks(1);
         shuffle();
         this.decks = 1;
     }
@@ -22,19 +22,18 @@ public class Deck {
         if (decks <= 0) {
             throw new InvalidRequestException("That is not a valid number of decks to use when creating a new deck!");
         }
-
-        for (int i = 0; i < decks; i++) {
-            createDeck();
-        }
+        createDecks(decks);
         shuffle();
         this.decks = decks;
     }
 
 
-    public void createDeck() {
-        for (Rank rank : Rank.values()) {
-            for (Suit suit : Suit.values()) {
-                this.pile.add(new Card(suit, rank));
+    public void createDecks(int decks) {
+        for (int i = 0; i < decks; i++) {
+            for (Rank rank : Rank.values()) {
+                for (Suit suit : Suit.values()) {
+                    this.pile.add(new Card(suit, rank));
+                }
             }
         }
     }
@@ -42,19 +41,6 @@ public class Deck {
 
     public void shuffle() {
         Collections.shuffle(this.pile);
-    }
-
-
-    public boolean playerWins(Hand player, Hand dealer) {
-        List<Integer> playerValue = player.getHandValue();
-        List<Integer> dealerValue = dealer.getHandValue();
-        if (playerValue.get(0) == dealerValue.get(0)) {
-            if (playerValue.get(1) > dealerValue.get(1)) {
-                return true;
-            }
-            return false;
-        }
-        return playerValue.get(0) == dealerValue.get(0) ? true : false;
     }
 
 
