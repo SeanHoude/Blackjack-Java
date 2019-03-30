@@ -27,26 +27,25 @@ public class Player {
     }
 
 
-    public ArrayList<Integer> calcHandScore() {
-        ArrayList<Integer> score = new ArrayList<>();
-        int aces = 0;
-        int blackjack = 0;
+    public List calcHandScore() {
+        List score = new ArrayList();
+        boolean hasAce = false;
+        boolean hasBlackjack = false;
         int total = 0;
         for (Card card : this.hand) {
-            if (card.getRank() == Rank.Ace) { aces++; }
-            if (card.getRank() == Rank.Jack &&
+            if (card.getRank() == Rank.Ace) { hasAce = true; }
+            else if (card.getRank() == Rank.Jack &&
                 card.getSuit() == Suit.Clubs ||
                 card.getSuit() == Suit.Spades) {
-                blackjack = 1;
+                hasBlackjack = true;
             }
             total += card.getValue();
         }
-        while (total > 21 && aces > 0) {
-            aces--;
-            total -= 10;
+        if (total <= 11 && hasAce) {
+            total += 10;
         }
         score.add(total);
-        score.add(blackjack);
+        score.add(hasBlackjack);
         System.out.println(score);
         return score;
     }
