@@ -34,16 +34,10 @@ public class Player {
         int total = 0;
         for (Card card : this.hand) {
             if (card.getRank() == Rank.Ace) { hasAce = true; }
-            else if (card.getRank() == Rank.Jack &&
-                card.getSuit() == Suit.Clubs ||
-                card.getSuit() == Suit.Spades) {
-                hasBlackjack = true;
-            }
             total += card.getValue();
         }
-        if (total <= 11 && hasAce) {
-            total += 10;
-        }
+        if (total <= 11 && hasAce) { total += 10; }
+        if (total == 21 && this.hand.size() == 2) { hasBlackjack = true; }
         score.add(total);
         score.add(hasBlackjack);
         System.out.println(score);

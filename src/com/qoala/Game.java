@@ -1,6 +1,7 @@
 package com.qoala;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
@@ -27,9 +28,9 @@ public class Game {
     }
 
     public boolean playerWins(Player player, Player dealer) {
-        ArrayList<Integer> playerValue = player.calcHandScore();
-        ArrayList<Integer> dealerValue = dealer.calcHandScore();
-        if (playerValue.get(0) == dealerValue.get(0)) {
+        List playerValue = player.calcHandScore();
+        List dealerValue = dealer.calcHandScore();
+        if (playerValue.get(0) == dealerValue.get(0)) {     // Dealer wins tie unless Player has sole blackjack
             if (playerValue.get(1) > dealerValue.get(1)) {
                 return true;
             }
