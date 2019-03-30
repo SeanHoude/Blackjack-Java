@@ -7,6 +7,7 @@ public class Player {
 
     public List<Card> hand;
     public boolean dealer;
+    public int currentScore;
 
     public Player() {
         this.hand = new ArrayList<>();
@@ -27,19 +28,20 @@ public class Player {
     }
 
 
-    public List calcHandScore() {
-        List score = new ArrayList();
+    public List<Integer> calcHandScore() {
+        List<Integer> score = new ArrayList<>();
         boolean hasAce = false;
-        boolean hasBlackjack = false;
+        int hasBlackjack = 0;
         int total = 0;
         for (Card card : this.hand) {
             if (card.getRank() == Rank.Ace) { hasAce = true; }
             total += card.getValue();
         }
         if (total <= 11 && hasAce) { total += 10; }
-        if (total == 21 && this.hand.size() == 2) { hasBlackjack = true; }
+        if (total == 21 && this.hand.size() == 2) { hasBlackjack = 1; }
         score.add(total);
         score.add(hasBlackjack);
+        this.currentScore = total;
         System.out.println(score);
         return score;
     }

@@ -27,16 +27,19 @@ public class Game {
         }
     }
 
-    public boolean playerWins(Player player, Player dealer) {
-        List playerValue = player.calcHandScore();
-        List dealerValue = dealer.calcHandScore();
-        if (playerValue.get(0) == dealerValue.get(0)) {     // Dealer wins tie unless Player has sole blackjack
-            if (playerValue.get(1) > dealerValue.get(1)) {
-                return true;
-            }
-            return false;
+    public int playerWins(Player player, Player dealer) {
+        List<Integer> playerValue = player.calcHandScore();
+        List<Integer> dealerValue = dealer.calcHandScore();
+        if (player.currentScore > dealer.currentScore) {
+            return 1;
         }
-        return playerValue.get(0) == dealerValue.get(0) ? true : false;
+        else if (player.currentScore == dealer.currentScore) {
+            if (playerValue.get(1) == 1 && dealerValue.get(1) == 0) { // check if player has only blackjack
+                return 1;
+            }
+            return 0;
+        }
+        else { return -1; }
     }
 
     public void hit() {
