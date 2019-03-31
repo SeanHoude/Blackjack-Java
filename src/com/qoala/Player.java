@@ -6,25 +6,10 @@ import java.util.List;
 public class Player {
 
     public List<Card> hand;
-    public boolean dealer;
     public int currentScore;
 
     public Player() {
         this.hand = new ArrayList<>();
-        this.dealer = false;
-    }
-
-
-    public Player(int oneIfDealer) {
-        this.hand = new ArrayList<>();
-        if (oneIfDealer == 1) {
-            this.dealer = true;
-        }
-    }
-
-
-    public boolean isDealer() {
-        return this.dealer;
     }
 
 

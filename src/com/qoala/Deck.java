@@ -13,7 +13,6 @@ public class Deck {
 
     public Deck() {
         createDecks(1);
-        shuffle();
         this.decks = 1;
     }
 
@@ -23,18 +22,32 @@ public class Deck {
             throw new InvalidRequestException("That is not a valid number of decks to use when creating a new deck!");
         }
         createDecks(decks);
-        shuffle();
         this.decks = decks;
     }
 
 
     public void createDecks(int decks) {
+        destroyDeck();
         for (int i = 0; i < decks; i++) {
             for (Rank rank : Rank.values()) {
                 for (Suit suit : Suit.values()) {
                     this.pile.add(new Card(suit, rank));
                 }
             }
+        }
+        shuffle();
+    }
+
+
+    public Card draw() {
+        recirculateCardsIfNeeded();
+        return this.pile.remove(0);
+    }
+
+
+    public void recirculateCardsIfNeeded() {
+        if (this.pile.size() == 0) {
+            createDecks(this.decks);
         }
     }
 
@@ -45,20 +58,17 @@ public class Deck {
 
 
     public void destroyDeck() {
-        this.pile.clear();
+        if (this.pile != null) { this.pile.clear(); }
     }
 
 
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(this.pile.size() + " cards:" + System.lineSeparator());
-
         for (Card card : this.pile) {
             result.append(card + ", ");
         }
-
         result.setLength(result.length() - 2);
-
         return result.toString();
     }
 
