@@ -28,30 +28,7 @@ public class Game {
             initialDeal();
             showHands();
             hitOrStay();
-            if (notBusted(player)) {
-                dealerPlays();
-                if (notBusted(dealer)) {
-                    int outcome = playerWins();
-                    revealCards();
-                    if (outcome == 1) {
-                        System.out.println("You won the match!");
-                        this.chips += bet;
-                    } else if (outcome == 0) {
-                        System.out.println("The match was a tie.");
-                    } else {
-                        System.out.println("The dealer won the match!");
-                        this.chips -= bet;
-                    }
-                } else {
-                    System.out.printf("The dealer busted!! %s\n", dealer.showDealerHand(true));
-                    System.out.println("You won the match!");
-                    this.chips += bet;
-                }
-            }
-            else {
-                this.chips -= bet;
-            }
-
+            determineWinner(bet);
         }
         System.out.println("\nYou're all out of chips! Would you like to play again? (y/n)");
         char playAgain = 'x';
@@ -89,6 +66,33 @@ public class Game {
             else {
                 System.out.printf("You busted!! %s", player.showPlayerHand());
             }
+        }
+    }
+
+
+    public void determineWinner(int bet) {
+        if (notBusted(player)) {
+            dealerPlays();
+            if (notBusted(dealer)) {
+                int outcome = playerWins();
+                revealCards();
+                if (outcome == 1) {
+                    System.out.println("You won the match!");
+                    this.chips += bet;
+                } else if (outcome == 0) {
+                    System.out.println("The match was a tie.");
+                } else {
+                    System.out.println("The dealer won the match!");
+                    this.chips -= bet;
+                }
+            } else {
+                System.out.printf("The dealer busted!! %s\n", dealer.showDealerHand(true));
+                System.out.println("You won the match!");
+                this.chips += bet;
+            }
+        }
+        else {
+            this.chips -= bet;
         }
     }
 
