@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
 
     private int chips;
-    private Deck deck = new Deck();
+    private Deck deck = new Deck(6);
     private Player player = new Player();
     private Player dealer = new Player();
     private Scanner input = new Scanner(System.in);
@@ -152,7 +152,9 @@ public class Game {
 
     private void hit(@NotNull Player player, boolean verbose) {
         player.hand.add(deck.draw());
-        System.out.printf("You drew a %s\n", player.hand.get(player.hand.size() - 1));
+        if (verbose) {
+            System.out.printf("You drew a %s\n", player.hand.get(player.hand.size() - 1));
+        }
     }
 
 

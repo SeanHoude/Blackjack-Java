@@ -26,7 +26,7 @@ public class Deck {
     }
 
 
-    public void createDecks(int decks) {
+    private void createDecks(int decks) {
         destroyDeck();
         for (int i = 0; i < decks; i++) {
             for (Rank rank : Rank.values()) {
@@ -45,7 +45,7 @@ public class Deck {
     }
 
 
-    public void recirculateCardsIfNeeded() {
+    private void recirculateCardsIfNeeded() {
         if (this.pile.size() == 0) {
             createDecks(this.decks);
         }
@@ -57,7 +57,7 @@ public class Deck {
     }
 
 
-    public void destroyDeck() {
+    private void destroyDeck() {
         if (this.pile != null) { this.pile.clear(); }
     }
 
@@ -66,7 +66,7 @@ public class Deck {
     public String toString() {
         StringBuilder result = new StringBuilder(this.pile.size() + " cards:" + System.lineSeparator());
         for (Card card : this.pile) {
-            result.append(card + ", ");
+            result.append(card).append(", ");
         }
         result.setLength(result.length() - 2);
         return result.toString();

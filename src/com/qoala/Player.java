@@ -29,7 +29,6 @@ public class Player {
         score.add(hasBlackjack);
         score.add((hasAce) ? 1 : 0);
         this.currentScore = total;
-        System.out.println(score);
         return score;
     }
 
@@ -46,7 +45,7 @@ public class Player {
 
 
     public String showDealerHand(boolean reveal) {
-        StringBuilder hand = new StringBuilder("Dealer's hand: ");
+        StringBuilder hand = new StringBuilder("The dealer had: ");
         boolean hiddenCard;
         if (reveal) {
             hiddenCard = true;
