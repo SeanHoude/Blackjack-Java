@@ -13,27 +13,32 @@ public class Game {
     Scanner input = new Scanner(System.in);
 
     public Game() {
-        this.chips = 100;
+        this.chips = 0;
     }
 
     // Game loop
     public void startGame() {
         while (this.chips > 0) {
             int bet = -1;
-            System.out.printf("You have %s chips. How many would you like to bet?\n", this.chips);
+            System.out.printf("You have %s chips.\n", this.chips);
+            System.out.printf("How many chips would you like to bet? (0 to %s)\n", this.chips);
             while (bet < 0 || bet > this.chips) {
                 bet = input.nextInt();
             }
             initialDeal();
-            System.out.println(player.showPlayerHand());
-            System.out.println(dealer.showDealerHand());
+            showHands();
+            hitOrStay();
+            
         }
         System.out.println("You're all out of chips! Would you like to play again? (y/n)");
-        char playAgain = 'x';
+        char playAgain;
         while (playAgain != 'y' && playAgain != 'n') {
-            playAgain = input.next().charAt(0);
+            playAgain = Character.toLowerCase(input.next().charAt(0));
         }
-
+        if (playAgain == 'y') {
+            this.chips = 100;
+            startGame();
+        }
     }
 
     public void initialDeal() {
@@ -46,6 +51,23 @@ public class Game {
     }
 
 
+    public void hitOrStay() {
+        char hitOrStay = 'x';
+        System.out.println("Would you like to (h)it or (s)tay? (h/s)");
+        while (hitOrStay != 'h' && hitOrStay != 's') {
+            hitOrStay = Character.toLowerCase(input.next().charAt(0));
+        }
+        if (hitOrStay == 'h') {
+            hit(player);
+            hitOrStay();
+        }
+    }
+
+
+    public void showHands() {
+        System.out.println(player.showPlayerHand());
+        System.out.println(dealer.showDealerHand());
+    }
     public int playerWins(Player player, Player dealer) { // 1 player wins, 0 tie, -1 dealer wins
         List<Integer> playerScore = player.calcHandScore();
         List<Integer> dealerScore = dealer.calcHandScore();

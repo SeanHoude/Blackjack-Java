@@ -32,16 +32,17 @@ public class Player {
     }
 
     public String showPlayerHand() {
-        StringBuilder hand = new StringBuilder(this.hand.size() + " cards:" + System.lineSeparator());
+        StringBuilder hand = new StringBuilder("Your hand: ");
         for (Card card : this.hand) {
             hand.append(card).append(", ");
         }
         hand.setLength(hand.length() - 2);
+        System.out.printf("The value of your hand is %s.\n", calcHandScore().get(0));
         return hand.toString();
     }
 
     public String showDealerHand() {
-        StringBuilder hand = new StringBuilder(this.hand.size() + " cards:" + System.lineSeparator());
+        StringBuilder hand = new StringBuilder("Dealer's hand: ");
         boolean hiddenCard = false;
         for (Card card : this.hand) {
             if (!hiddenCard) {
