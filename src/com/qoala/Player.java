@@ -31,6 +31,29 @@ public class Player {
         return score;
     }
 
+    public String showPlayerHand() {
+        StringBuilder hand = new StringBuilder(this.hand.size() + " cards:" + System.lineSeparator());
+        for (Card card : this.hand) {
+            hand.append(card).append(", ");
+        }
+        hand.setLength(hand.length() - 2);
+        return hand.toString();
+    }
+
+    public String showDealerHand() {
+        StringBuilder hand = new StringBuilder(this.hand.size() + " cards:" + System.lineSeparator());
+        boolean hiddenCard = false;
+        for (Card card : this.hand) {
+            if (!hiddenCard) {
+                hiddenCard = true;
+                hand.append("[Hidden], ");
+                continue;
+            }
+            hand.append(card).append(", ");
+        }
+        hand.setLength(hand.length() - 2);
+        return hand.toString();
+    }
 
 
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Game {
 
-    private int bet;
     private int chips;
     private Deck deck = new Deck();
     private Player player = new Player();
@@ -15,16 +14,26 @@ public class Game {
 
     public Game() {
         this.chips = 100;
-        this.bet = 0;
     }
 
     // Game loop
-    while (this.chips > 0) {
-        System.out.println("You have %s chips. How many would you like to bet?  ");
-
-        while (bet < 0 || bet > chips) {
-            bet = input.nextInt();
+    public void startGame() {
+        while (this.chips > 0) {
+            int bet = -1;
+            System.out.printf("You have %s chips. How many would you like to bet?\n", this.chips);
+            while (bet < 0 || bet > this.chips) {
+                bet = input.nextInt();
+            }
+            initialDeal();
+            System.out.println(player.showPlayerHand());
+            System.out.println(dealer.showDealerHand());
         }
+        System.out.println("You're all out of chips! Would you like to play again? (y/n)");
+        char playAgain = 'x';
+        while (playAgain != 'y' && playAgain != 'n') {
+            playAgain = input.next().charAt(0);
+        }
+
     }
 
     public void initialDeal() {
