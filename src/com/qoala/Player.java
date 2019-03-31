@@ -27,7 +27,6 @@ public class Player {
         score.add(total);
         score.add(hasBlackjack);
         this.currentScore = total;
-        System.out.println(score);
         return score;
     }
 

@@ -13,7 +13,7 @@ public class Game {
     Scanner input = new Scanner(System.in);
 
     public Game() {
-        this.chips = 0;
+        this.chips = 100;
     }
 
     // Game loop
@@ -28,10 +28,25 @@ public class Game {
             initialDeal();
             showHands();
             hitOrStay();
-            
+            if (notBusted()) {
+                int outcome = playerWins();
+                if (outcome == 1) {
+                    System.out.println("You won the match!");
+                    this.chips += bet;
+                } else if (outcome == 0) {
+                    System.out.println("The match was a tie");
+                } else {
+                    System.out.println("The dealer won the match!");
+                    this.chips -= bet;
+                }
+            }
+            else {
+                this.chips -= bet;
+            }
+
         }
         System.out.println("You're all out of chips! Would you like to play again? (y/n)");
-        char playAgain;
+        char playAgain = 'x';
         while (playAgain != 'y' && playAgain != 'n') {
             playAgain = Character.toLowerCase(input.next().charAt(0));
         }
@@ -58,9 +73,23 @@ public class Game {
             hitOrStay = Character.toLowerCase(input.next().charAt(0));
         }
         if (hitOrStay == 'h') {
-            hit(player);
-            hitOrStay();
+            hit(player, true);
+            if (notBusted()) {
+                showHands();
+                hitOrStay();
+            }
+            else {
+                System.out.println("You busted!!!");
+            }
         }
+    }
+
+
+    public boolean notBusted() {
+        if (player.calcHandScore().get(0) <= 21) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -68,7 +97,9 @@ public class Game {
         System.out.println(player.showPlayerHand());
         System.out.println(dealer.showDealerHand());
     }
-    public int playerWins(Player player, Player dealer) { // 1 player wins, 0 tie, -1 dealer wins
+
+
+    public int playerWins() { // 1 player wins, 0 tie, -1 dealer wins
         List<Integer> playerScore = player.calcHandScore();
         List<Integer> dealerScore = dealer.calcHandScore();
         if (player.currentScore > dealer.currentScore) {
@@ -86,6 +117,12 @@ public class Game {
 
     public void hit(Player player) {
         player.hand.add(deck.draw());
+    }
+
+
+    public void hit(Player player, boolean verbose) {
+        player.hand.add(deck.draw());
+        System.out.printf("You drew a %s\n", player.hand.get(player.hand.size() - 1));
     }
 
 
