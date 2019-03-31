@@ -1,5 +1,7 @@
 package com.qoala;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,14 +11,14 @@ public class Game {
     private Deck deck = new Deck();
     private Player player = new Player();
     private Player dealer = new Player();
+    private Scanner input = new Scanner(System.in);
 
-    Scanner input = new Scanner(System.in);
 
     public Game() {
         this.chips = 100;
     }
 
-    // Game loop
+
     public void startGame() {
         while (this.chips > 0) {
             int bet = -1;
@@ -39,10 +41,10 @@ public class Game {
             this.chips = 100;
             startGame();
         }
-
     }
 
-    public void initialDeal() {
+
+    private void initialDeal() {
         player.hand.clear();
         dealer.hand.clear();
         for (int i = 0; i < 2; i++) {
@@ -52,7 +54,8 @@ public class Game {
     }
 
 
-    public void hitOrStay() {
+    private void hitOrStay() {
+        if (player.currentScore == 21) { return; }
         char hitOrStay = 'x';
         System.out.println("Would you like to (h)it or (s)tay? (h/s)");
         while (hitOrStay != 'h' && hitOrStay != 's') {
@@ -71,7 +74,7 @@ public class Game {
     }
 
 
-    public void determineWinner(int bet) {
+    private void determineWinner(int bet) {
         if (notBusted(player)) {
             dealerPlays();
             if (notBusted(dealer)) {
@@ -98,7 +101,7 @@ public class Game {
     }
 
 
-    public void dealerPlays() {
+    private void dealerPlays() {
         while (dealer.calcHandScore().get(0) < 17 || player.currentScore > dealer.currentScore) {
             hit(dealer);
         }
@@ -108,27 +111,25 @@ public class Game {
     }
 
 
-    public boolean notBusted(Player player) {
-        if (player.calcHandScore().get(0) <= 21) {
-            return true;
-        }
-        return false;
+    private boolean notBusted(@NotNull Player player) {
+        return player.calcHandScore().get(0) <= 21;
     }
 
 
-    public void showHands() {
+    private void showHands() {
         System.out.println(player.showPlayerHand());
         System.out.println(dealer.showDealerHand(false));
     }
 
 
-    public void revealCards() {
+    private void revealCards() {
         System.out.println(player.showPlayerHand());
         System.out.println(dealer.showDealerHand(true));
 
     }
 
-    public int playerWins() { // 1 player wins, 0 tie, -1 dealer wins
+
+    private int playerWins() { // 1 player wins, 0 tie, -1 dealer wins
         List<Integer> playerScore = player.calcHandScore();
         List<Integer> dealerScore = dealer.calcHandScore();
         if (player.currentScore > dealer.currentScore) {
@@ -144,12 +145,12 @@ public class Game {
     }
 
 
-    public void hit(Player player) {
+    private void hit(@NotNull Player player) {
         player.hand.add(deck.draw());
     }
 
 
-    public void hit(Player player, boolean verbose) {
+    private void hit(@NotNull Player player, boolean verbose) {
         player.hand.add(deck.draw());
         System.out.printf("You drew a %s\n", player.hand.get(player.hand.size() - 1));
     }
