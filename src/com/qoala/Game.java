@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Game {
 
     private int chips;
@@ -21,26 +22,14 @@ public class Game {
 
     public void startGame() {
         while (this.chips > 0) {
-            int bet = -1;
-            System.out.printf("You have %s chips.\n", this.chips);
-            System.out.printf("How many chips would you like to bet? (0 to %s)\n", this.chips);
-            while (bet < 0 || bet > this.chips) {
-                bet = input.nextInt();
-            }
+            int bet = placeBet();
+            printLineBreak();
             initialDeal();
             showHands();
             hitOrStay();
             determineWinner(bet);
         }
-        System.out.println("\nYou're all out of chips! Would you like to play again? (y/n)");
-        char playAgain = 'x';
-        while (playAgain != 'y' && playAgain != 'n') {
-            playAgain = Character.toLowerCase(input.next().charAt(0));
-        }
-        if (playAgain == 'y') {
-            this.chips = 100;
-            startGame();
-        }
+        playAgain();
     }
 
 
@@ -61,6 +50,7 @@ public class Game {
         while (hitOrStay != 'h' && hitOrStay != 's') {
             hitOrStay = Character.toLowerCase(input.next().charAt(0));
         }
+        printLineBreak();
         if (hitOrStay == 'h') {
             hit(player, true);
             if (notBusted(player)) {
@@ -71,6 +61,38 @@ public class Game {
                 System.out.printf("You busted!! %s", player.showPlayerHand());
             }
         }
+    }
+
+
+    private int placeBet() {
+        int bet = -1;
+        System.out.printf("You have %s chips.\n", this.chips);
+        System.out.printf("How many chips would you like to bet? (0 to %s)\n", this.chips);
+        while (bet < 0 || bet > this.chips) {
+            bet = input.nextInt();
+        }
+        return bet;
+    }
+
+
+    private void printLineBreak() {
+        System.out.println("------------------------------------------------");
+    }
+
+
+    private void playAgain() {
+        System.out.println("\nYou're all out of chips! Would you like to play again? (y/n)");
+        char playAgain = 'x';
+        while (playAgain != 'y' && playAgain != 'n') {
+            playAgain = Character.toLowerCase(input.next().charAt(0));
+        }
+        if (playAgain == 'y') {
+            this.chips = 100;
+            startGame();
+        } else {
+            System.out.println("Thanks for playing!");
+        }
+
     }
 
 

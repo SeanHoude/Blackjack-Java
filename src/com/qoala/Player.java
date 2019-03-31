@@ -45,7 +45,12 @@ public class Player {
 
 
     public String showDealerHand(boolean reveal) {
-        StringBuilder hand = new StringBuilder("The dealer had: ");
+        StringBuilder hand;
+        if (reveal) {
+            hand = new StringBuilder("The dealer had: ");
+        } else {
+            hand = new StringBuilder("Dealer's hand: ");
+        }
         boolean hiddenCard;
         if (reveal) {
             hiddenCard = true;
