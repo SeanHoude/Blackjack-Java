@@ -8,6 +8,7 @@ public class Player {
     public List<Card> hand;
     public int currentScore;
 
+
     public Player() {
         this.hand = new ArrayList<>();
     }
@@ -26,9 +27,11 @@ public class Player {
         if (total == 21 && this.hand.size() == 2) { hasBlackjack = 1; }
         score.add(total);
         score.add(hasBlackjack);
+        if (hasAce) { score.add(1); }
         this.currentScore = total;
         return score;
     }
+
 
     public String showPlayerHand() {
         StringBuilder hand = new StringBuilder("Your hand: ");
@@ -36,13 +39,20 @@ public class Player {
             hand.append(card).append(", ");
         }
         hand.setLength(hand.length() - 2);
-        System.out.printf("The value of your hand is %s.\n", calcHandScore().get(0));
+        hand.append(String.format(". Value = %s.", calcHandScore().get(0)));
         return hand.toString();
     }
 
-    public String showDealerHand() {
+
+    public String showDealerHand(boolean reveal) {
         StringBuilder hand = new StringBuilder("Dealer's hand: ");
-        boolean hiddenCard = false;
+        boolean hiddenCard;
+        if (reveal) {
+            hiddenCard = true;
+        }
+        else {
+            hiddenCard = false;
+        }
         for (Card card : this.hand) {
             if (!hiddenCard) {
                 hiddenCard = true;
@@ -52,6 +62,9 @@ public class Player {
             hand.append(card).append(", ");
         }
         hand.setLength(hand.length() - 2);
+        if (reveal) {
+            hand.append(String.format(". Value = %s.", calcHandScore().get(0)));
+        }
         return hand.toString();
     }
 

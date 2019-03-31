@@ -28,16 +28,24 @@ public class Game {
             initialDeal();
             showHands();
             hitOrStay();
-            if (notBusted()) {
-                int outcome = playerWins();
-                if (outcome == 1) {
+            if (notBusted(player)) {
+                dealerPlays();
+                if (notBusted(dealer)) {
+                    int outcome = playerWins();
+                    revealCards();
+                    if (outcome == 1) {
+                        System.out.println("You won the match!");
+                        this.chips += bet;
+                    } else if (outcome == 0) {
+                        System.out.println("The match was a tie.");
+                    } else {
+                        System.out.println("The dealer won the match!");
+                        this.chips -= bet;
+                    }
+                } else {
+                    System.out.printf("The dealer busted!! %s\n", dealer.showDealerHand(true));
                     System.out.println("You won the match!");
                     this.chips += bet;
-                } else if (outcome == 0) {
-                    System.out.println("The match was a tie");
-                } else {
-                    System.out.println("The dealer won the match!");
-                    this.chips -= bet;
                 }
             }
             else {
@@ -45,7 +53,7 @@ public class Game {
             }
 
         }
-        System.out.println("You're all out of chips! Would you like to play again? (y/n)");
+        System.out.println("\nYou're all out of chips! Would you like to play again? (y/n)");
         char playAgain = 'x';
         while (playAgain != 'y' && playAgain != 'n') {
             playAgain = Character.toLowerCase(input.next().charAt(0));
@@ -74,18 +82,28 @@ public class Game {
         }
         if (hitOrStay == 'h') {
             hit(player, true);
-            if (notBusted()) {
+            if (notBusted(player)) {
                 showHands();
                 hitOrStay();
             }
             else {
-                System.out.println("You busted!!!");
+                System.out.printf("You busted!! %s", player.showPlayerHand());
             }
         }
     }
 
 
-    public boolean notBusted() {
+    public void dealerPlays() {
+        while (dealer.calcHandScore().get(0) < 17) {
+            hit(dealer);
+        }
+        if (dealer.calcHandScore().get(0) == 17 && dealer.calcHandScore().get(2) == 1) {
+            hit(dealer);
+        }
+    }
+
+
+    public boolean notBusted(Player player) {
         if (player.calcHandScore().get(0) <= 21) {
             return true;
         }
@@ -95,9 +113,15 @@ public class Game {
 
     public void showHands() {
         System.out.println(player.showPlayerHand());
-        System.out.println(dealer.showDealerHand());
+        System.out.println(dealer.showDealerHand(false));
     }
 
+
+    public void revealCards() {
+        System.out.println(player.showPlayerHand());
+        System.out.println(dealer.showDealerHand(true));
+
+    }
 
     public int playerWins() { // 1 player wins, 0 tie, -1 dealer wins
         List<Integer> playerScore = player.calcHandScore();
