@@ -27,9 +27,9 @@ public class Player {
         if (total == 21 && this.hand.size() == 2) { hasBlackjack = 1; }
         score.add(total);
         score.add(hasBlackjack);
-        if (hasAce) { score.add(1); }
-        else { score.add(0); }
+        score.add((hasAce) ? 1 : 0);
         this.currentScore = total;
+        System.out.println(score);
         return score;
     }
 
