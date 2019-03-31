@@ -39,6 +39,7 @@ public class Game {
             this.chips = 100;
             startGame();
         }
+
     }
 
     public void initialDeal() {
@@ -98,7 +99,7 @@ public class Game {
 
 
     public void dealerPlays() {
-        while (dealer.calcHandScore().get(0) < 17) {
+        while (dealer.calcHandScore().get(0) < 17 || player.currentScore > dealer.currentScore) {
             hit(dealer);
         }
         if (dealer.calcHandScore().get(0) == 17 && dealer.calcHandScore().get(2) == 1) {

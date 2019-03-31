@@ -28,6 +28,7 @@ public class Player {
         score.add(total);
         score.add(hasBlackjack);
         if (hasAce) { score.add(1); }
+        else { score.add(0); }
         this.currentScore = total;
         return score;
     }
