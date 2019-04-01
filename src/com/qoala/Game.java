@@ -124,11 +124,11 @@ public class Game {
 
 
     private void dealerPlays() {
-        while (dealer.calcHandScore().get(0) < 17 || player.currentScore > dealer.currentScore) {
+        while (dealer.calcHandScore().get(0) < 17) {
             hit(dealer);
         }
         if (dealer.calcHandScore().get(0) == 17 && dealer.calcHandScore().get(2) == 1) {
-            hit(dealer);
+            hit(dealer); // Hit on soft 17 (Ace and total score of 17)
         }
     }
 

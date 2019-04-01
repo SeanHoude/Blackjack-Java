@@ -24,8 +24,7 @@ class DeckTest {
 
     @org.junit.jupiter.api.Test
     void shuffleTest() {
-        List<Card> firstTen;
-        firstTen = new ArrayList(deck.pile.subList(0, 10));
+        ArrayList<Card> firstTen = new ArrayList(deck.pile.subList(0, 10));
         deck.shuffle();
         assertNotEquals(firstTen, deck.pile.subList(0, 10));
     }
